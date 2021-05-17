@@ -1,0 +1,51 @@
+{
+  "job_name": "demo_onetime_data_ingestion_to_sales_job",
+  "source": [
+    {
+      "task_name": "extract",
+      "source_conn_id": "demo_mssql_conn",
+      "source_system": "mssql",
+      "source_database": "airflowdb",
+      "source_schema": "sales",
+      "source_table": [
+        "customers",
+        "order_items",
+        "orders",
+        "stores"
+      ],
+      "source_key_column": [
+        "CUSTOMER_ID",
+        "ITEM_ID",
+        "ORDER_ID",
+        "STORE_ID"
+      ],
+      "source_incremental_field":"modifieddate",
+      "source_query": "",
+      "script": ""
+    }
+  ],
+  "destination": [
+    {
+      "task_name": "load",
+      "target_conn_id": "demo_redshift_conn",
+      "blob_conn_id": "",
+      "target_system": "mssql",
+      "target_database": "airflowdb",
+      "target_schema": "sales",
+      "target_table": [
+        "customer",
+        "order_items",
+        "orders",
+        "stores"
+      ],
+      "load_type": "append"
+    }
+  ],
+  "destination_trigger": [
+    {
+      "task_name": "trigger_sensor_job",
+      "target_action": "",
+      "target_job": ""
+    }
+  ]
+}

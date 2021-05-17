@@ -1,0 +1,18 @@
+from airflow import DAG
+from airflow.operators.dummy_operator import DummyOperator
+from datetime import datetime, timedelta
+from operators.neu_dataops_create_dag_operator import NeuDataOpsCreateDagOperator
+
+default_dag_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2020, 8, 23),
+    'catchup' : 'False',
+    'email': ['saurav.mishra@neudesic.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 0,
+    'schedule_interval': '@daily'
+}  
+
+dag = NeuDataOpsCreateDagOperator.create_batch_ingestion_dag('demo_delta_data_ingestion_to_order_items_sensor_job', default_dag_args)

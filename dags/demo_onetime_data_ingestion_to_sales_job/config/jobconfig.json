@@ -1,0 +1,16 @@
+{
+  "job_name": "demo_onetime_data_ingestion_to_sales_job",
+  "job_type": "onetime_load",
+  "retries": 0,
+  "start_date": "2020-09-05",
+  "catchup" : "False",
+  "email": ["abhilash.thomas@neudesic.com"],
+  "email_on_failure": "False",
+  "email_on_retry": "False",
+  "email_on_sla_miss": "False",
+  "slack_channel": ["abhilash.thomas@neudesic.com"],
+  "slack_on_failure": "False",
+  "slack_on_retry": "False",
+  "slack_on_sla_miss": "False",
+  "schedule_interval": "None"
+}

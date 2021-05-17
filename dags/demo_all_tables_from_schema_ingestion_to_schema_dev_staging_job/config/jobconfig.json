@@ -1,0 +1,16 @@
+{
+  "job_name": "demo_all_tables_from_schema_ingestion_to_schema_dev_staging_job",
+  "job_type": "onetime_load",
+  "retries": 0,
+  "start_date": "2020-09-05",
+  "catchup" : "False",
+  "email": ["ajith.venugopal@neudesic.com"],
+  "email_on_failure": "False",
+  "email_on_retry": "False",
+  "email_on_sla_miss": "False",
+  "slack_channel": ["ajith.venugopal@neudesic.com"],
+  "slack_on_failure": "False",
+  "slack_on_retry": "False",
+  "slack_on_sla_miss": "False",
+  "schedule_interval": "None"
+}

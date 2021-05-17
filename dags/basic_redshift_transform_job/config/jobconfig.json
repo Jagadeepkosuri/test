@@ -1,0 +1,16 @@
+{
+  "job_name": "basic_redshift_transform_job",
+  "job_type": "onetime_transformation",
+  "retries": "0",
+  "start_date": "2021-02-10",
+  "catchup" : "False",
+  "email": ["ajith.venugopal@neudesic.com.au"],
+  "email_on_failure": "False",
+  "email_on_retry": "False",
+  "email_on_sla_miss": "False",
+  "slack_channel": ["ajith.venugopal@neudesic.com.au"],
+  "slack_on_failure": "False",
+  "slack_on_retry": "False",
+  "slack_on_sla_miss": "False",
+  "schedule_interval": "@once"
+}

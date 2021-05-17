@@ -1,0 +1,36 @@
+{
+  "job_name": "demo_delta_data_ingestion_to_schema_dev_staging_job",
+  "source": [
+    {
+      "task_name": "extract",
+      "source_conn_id": "demo_mssql_conn",
+      "source_system": "mssql",
+      "source_database": "airflowdb",
+      "source_schema": "dbo",
+      "source_table": ["email_details","census_details"],
+      "source_key_column": ["id","id"],
+      "source_incremental_field":"updated_time",
+      "source_query": "",
+      "script": ""
+    }
+  ],
+  "destination": [
+    {
+      "task_name": "load",
+      "target_conn_id": "demo_redshift_conn",
+      "blob_conn_id": "",
+      "target_system": "postgres",
+      "target_database": "dev",
+      "target_schema": "dev_staging",
+      "target_table": ["email_details","census_details"],
+      "load_type": "append"
+    }
+  ],
+  "destination_trigger": [
+    {
+      "task_name": "trigger_sensor_job",
+      "target_action": "",
+      "target_job": ""
+    }
+  ]
+}

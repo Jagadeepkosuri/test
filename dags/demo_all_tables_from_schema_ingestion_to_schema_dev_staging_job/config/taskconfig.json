@@ -1,0 +1,37 @@
+{
+  "job_name": "demo_all_tables_from_schema_ingestion_to_schema_dev_staging_job",
+  "source": [
+    {
+      "task_name": "extract",
+      "source_conn_id": "demo_mssql_conn",
+      "source_system": "mssql",
+      "source_database": "airflowdb",
+      "source_schema": "dev_staging",
+      "source_table": [],
+      "source_key_column": [],
+      "source_incremental_field":"updated_time",
+      "source_query": "",
+      "script": ""
+    }
+  ],
+  "destination": [
+    {
+      "task_name": "load",
+      "target_conn_id": "demo_redshift_conn_postgres",
+      "blob_conn_id": "",
+      "target_system": "redshift",
+      "target_database": "dev",
+      "target_schema": "dev_staging",
+      "target_table": [],
+      "load_type": "append",
+      "logger_conn_id": "demo_redshift_conn_postgres"
+    }
+  ],
+  "destination_trigger": [
+    {
+      "task_name": "trigger_sensor_job",
+      "target_action": "",
+      "target_job": ""
+    }
+  ]
+}

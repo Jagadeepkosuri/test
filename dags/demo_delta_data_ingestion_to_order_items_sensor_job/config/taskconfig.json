@@ -1,0 +1,22 @@
+{
+  "job_name": "demo_delta_data_ingestion_to_order_items_sensor_job",
+  "source": [
+    {
+      "task_name": "mssql_wm_sensor",
+      "source_conn_id": "demo_mssql_conn",
+      "source_system": "mssql",
+      "source_database": "airflowdb",
+      "source_schema": "dbo",
+      "source_table": "items",
+      "source_query": "SELECT CASE WHEN COUNT(*) >= 0 THEN 1 ELSE 0 END AS CNT FROM dbo.items WHERE modifieddate > {WATERMARK_TS}",
+      "script": ""
+    }
+  ],
+  "destination_trigger": [
+    {
+      "task_name": "trigger_delta_job",
+      "target_action": "trigger",
+      "target_job": "demo_delta_data_ingestion_to_order_items_job"
+    }
+  ]
+}

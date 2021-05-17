@@ -1,0 +1,63 @@
+{
+  "job_name": "demo_onetime_data_ingestion_to_orders_job",
+  "source": [
+    {
+      "task_name": "extract",
+      "source_conn_id": "demo_mssql_conn",
+      "source_system": "mssql",
+      "source_database": "neufwkdataopssqldb",
+      "source_schema": "dbo",
+      "source_table": [
+        "CUSTOMER",
+        "LINEITEM",
+        "NATION",
+        "ORDERS",
+        "PART",
+        "PARTSUPP",
+        "REGION",
+        "SUPPLIER"
+      ],
+      "source_key_column": [
+        "id",
+        "id",
+	      "id",
+        "id",
+	      "id",
+	      "id",
+	      "id",
+        "id"
+      ],
+      "source_incremental_field":"modifieddate",
+      "source_query": "",
+      "script": ""
+    }
+  ],
+  "destination": [
+    {
+      "task_name": "load",
+      "target_conn_id": "demo_synapse_conn",
+      "blob_conn_id": "demo_blob_conn",
+      "target_system": "synapse",
+      "target_database": "neufwkdataopsdb",
+      "target_schema": "dbo",
+      "target_table": [
+        "CUSTOMER",
+        "LINEITEM",
+        "NATION",
+        "ORDERS",
+        "PART",
+        "PARTSUPP",
+        "REGION",
+        "SUPPLIER"
+      ],
+      "load_type": "replace"
+    }
+  ],
+  "destination_trigger": [
+    {
+      "task_name": "trigger_sensor_job",
+      "target_action": "",
+      "target_job": ""
+    }
+  ]
+}

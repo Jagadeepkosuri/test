@@ -1,0 +1,16 @@
+{
+  "job_name": "demo_delta_data_ingestion_to_schema_dev_staging_job",
+  "job_type": "incremental_load",
+  "retries": 0,
+  "start_date": "2020-09-05",
+  "catchup" : "False",
+  "email": ["saurav.mishra@neudesic.com"],
+  "email_on_failure": "False",
+  "email_on_retry": "False",
+  "email_on_sla_miss": "False",
+  "slack_channel": ["saurav.mishra@neudesic.com"],
+  "slack_on_failure": "False",
+  "slack_on_retry": "False",
+  "slack_on_sla_miss": "False",
+  "schedule_interval": "None"
+}

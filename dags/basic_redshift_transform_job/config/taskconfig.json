@@ -1,0 +1,21 @@
+{
+   "job_name": "basic_redshift_transform_job",
+   "destination": [
+      {
+         "task_name": "transform_items",
+         "destination_system": "redshift",
+         "destination_table": "",
+         "conn_id": "demo_redshift_conn",
+         "destination_action": "script",
+         "script": "core_transform.sql"
+      },
+      {
+         "task_name": "update_etl_status",
+         "destination_system": "redshift",
+         "destination_table": "",
+         "conn_id": "demo_redshift_conn",
+         "destination_action": "script",
+         "script": "update_etl_status.sql"
+      }
+   ]
+}
